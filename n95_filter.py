@@ -1,6 +1,6 @@
 import pandas as pd
 
-n95 = pd.read_excel(r"C:\Users\jt883\Desktop\Raw N95 Report 4.26.xlsx")
+n95 = pd.read_excel(r"C:\Users\ejin3\OneDrive\Desktop\Raw CS Data N95.xlsx")
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', None)
 n95.columns = ['Mask', 'Date', 'Unit', 'Qty']
@@ -16,12 +16,11 @@ n95['Mask'].replace({
     'MASK RESPIRATOR SM CS/6BX/35EA': 'Halyard Duckbill Small'
 }, inplace=True)
 
-
 # Multi Index Version
 n95 = n95[['Unit', 'Date', 'Mask', 'Qty']]
 multi_index_df = n95.set_index(keys=['Unit']).sort_values(['Unit', 'Date'])
 print(multi_index_df)
-multi_index_df.to_excel(r"C:\Users\jt883\Desktop\N95 Report 4.26.xlsx")
+multi_index_df.to_excel(r"C:\Users\ejin3\OneDrive\Desktop\CS Data N95 4.27.xlsx")
 
 # Hold
 # multi_index_df = n95.set_index(keys=['Date', 'Unit']).sort_values('Unit')

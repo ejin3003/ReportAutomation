@@ -1,6 +1,6 @@
 import pandas as pd
 
-n95 = pd.read_excel(r"C:\Users\jt883\Desktop\N N95 Report 4.26.xlsx")
+n95 = pd.read_excel(r"C:\Users\ejin3\OneDrive\Desktop\Raw CS Data N95.xlsx")
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', None)
 n95.columns = ['Unit', 'Date', 'Mask', 'Total', 'Unit Total', 'Grand Total']
@@ -17,7 +17,7 @@ n95['Mask'].replace({
     'MASK RESPIRATOR SM CS/6BX/35EA': 'Halyard Duckbill Small'
 }, inplace=True)
 
-n95.to_excel(r"C:\Users\jt883\Desktop\New N95 Report 4.26.xlsx")
+n95.to_excel(r"C:\Users\ejin3\OneDrive\Desktop\CS Data N95 4.27.xlsx")
 
 # Multi Index Version
 # n95 = n95[['Unit', 'Date', 'Mask', 'Qty']]
