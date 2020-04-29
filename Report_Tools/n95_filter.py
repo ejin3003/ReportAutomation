@@ -1,13 +1,13 @@
 import pandas as pd
 
-n95 = pd.read_excel(r"C:\Users\ejin3\OneDrive\Desktop\Raw CS Data N95.xlsx")
+report = pd.read_excel(r"C:\Users\ejin3\OneDrive\Desktop\Raw CS Data N95.xlsx")
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', None)
-n95.columns = ['Mask', 'Date', 'Unit', 'Qty']
-n95['Mask'] = n95['Mask'].astype('category')
-n95['Date'] = n95['Date'].dt.date
+report.columns = ['Mask', 'Date', 'Unit', 'Qty']
+report['Mask'] = report['Mask'].astype('category')
+report['Date'] = report['Date'].dt.date
 
-n95['Mask'].replace({
+report['Mask'].replace({
     'FILTER PFR95 RESPIRATOR REG SIZE': 'Halyard Duckbill Reg',
     'GERSON N95 MASK RESPIRATOR 1730': 'Gerson 1730',
     'GERSON N95 MASK RESPIRATOR 82130': 'Gerson 82130',
@@ -17,8 +17,8 @@ n95['Mask'].replace({
 }, inplace=True)
 
 # Multi Index Version
-n95 = n95[['Unit', 'Date', 'Mask', 'Qty']]
-multi_index_df = n95.set_index(keys=['Unit']).sort_values(['Unit', 'Date'])
+report = report[['Unit', 'Date', 'Mask', 'Qty']]
+multi_index_df = report.set_index(keys=['Unit']).sort_values(['Unit', 'Date'])
 print(multi_index_df)
 multi_index_df.to_excel(r"C:\Users\ejin3\OneDrive\Desktop\CS Data N95 4.27.xlsx")
 
