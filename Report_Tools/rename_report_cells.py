@@ -1,4 +1,6 @@
 import pandas as pd
+from datetime import date
+from datetime import timedelta
 
 
 def rename_n95_report(path, dest):
@@ -19,4 +21,6 @@ def rename_n95_report(path, dest):
         'MASK RESPIRATOR SM CS/6BX/35EA': 'Halyard Duckbill Small'
     }, inplace=True)
 
-    n95.to_excel(dest)
+    yesterday = date.today() - timedelta(days=1)
+    sheet_1 = f"CS N95 Report {yesterday}"
+    n95.to_excel(dest, sheet_name=sheet_1)
