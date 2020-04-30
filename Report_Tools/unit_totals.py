@@ -34,3 +34,8 @@ def unit_totals(path, dest):
     writer.save()
     writer.close()
 
+    # Adjust Column Width
+    # writer_2 = pd.ExcelWriter(dest, engine="xlsxwriter")
+    # worksheet = writer_2.sheets['Unit Totals']
+    # worksheet.set_column("A:A", 30)
+
