@@ -1,4 +1,5 @@
 import pandas as pd
+from openpyxl import load_workbook
 
 
 def unit_totals(path, dest):
@@ -24,5 +25,12 @@ def unit_totals(path, dest):
     unit_total.columns = ['Unit', 'Unit Total']
     units = unit_total.groupby('Unit')
     df = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
-    df.to_excel(dest)
+
+    # Add Units Totals Sheet to N95 Report
+    writer = pd.ExcelWriter(dest, engine="openpyxl")
+    book = load_workbook(dest)
+    writer.book = book
+    df.to_excel(writer, sheet_name="Unit Totals")
+    writer.save()
+    writer.close()
 

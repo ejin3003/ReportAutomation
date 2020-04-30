@@ -12,5 +12,4 @@ rename_n95_report(n95_report_path, n95_report_dest)
 
 # Appends units totals to n95_report_dest
 unit_total_path = r"C:\Users\jt883\Desktop\Raw CS Data N95.xlsx"
-unit_total_dest = r"C:\Users\jt883\Desktop\Unit Totals {}.xlsx".format(yesterday)
-unit_totals(unit_total_path, unit_total_dest)
+unit_totals(unit_total_path, n95_report_dest)
