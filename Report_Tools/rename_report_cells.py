@@ -4,15 +4,15 @@ from datetime import timedelta
 
 
 def rename_n95_report(path, dest):
-    n95 = pd.read_excel(path)
+    n95_report = pd.read_excel(path)
     pd.set_option('display.width', 400)
     pd.set_option('display.max_columns', None)
-    n95.columns = ['Unit', 'Date', 'Mask', 'Total', 'Unit Total', 'Grand Total']
-    n95['Mask'] = n95['Mask'].astype('category')
-    n95['Date'] = n95['Date'].dt.date
-    n95.set_index('Date', inplace=True)
+    n95_report.columns = ['Unit', 'Date', 'Mask', 'Total', 'Unit Total', 'Grand Total']
+    n95_report['Mask'] = n95_report['Mask'].astype('category')
+    n95_report['Date'] = n95_report['Date'].dt.date
+    n95_report.set_index('Date', inplace=True)
 
-    n95['Mask'].replace({
+    n95_report['Mask'].replace({
         'FILTER PFR95 RESPIRATOR REG SIZE': 'Halyard Duckbill Reg',
         'GERSON N95 MASK RESPIRATOR 1730': 'Gerson 1730',
         'GERSON N95 MASK RESPIRATOR 82130': 'Gerson 82130',
@@ -23,4 +23,5 @@ def rename_n95_report(path, dest):
 
     yesterday = date.today() - timedelta(days=1)
     sheet_1 = f"CS N95 Report {yesterday}"
-    n95.to_excel(dest, sheet_name=sheet_1)
+    n95_report.to_excel(dest, sheet_name=sheet_1)
+

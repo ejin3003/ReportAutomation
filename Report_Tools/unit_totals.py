@@ -3,15 +3,15 @@ from openpyxl import load_workbook
 
 
 def unit_totals(path, dest):
-    report = pd.read_excel(path)
+    unit_report = pd.read_excel(path)
     pd.set_option('display.width', 400)
     pd.set_option('display.max_columns', None)
-    report.columns = ['Mask', 'Date', 'Unit', 'Qty']
-    report = report[['Unit', 'Date', 'Mask', 'Qty']]
-    report['Mask'] = report['Mask'].astype('category')
-    report['Date'] = report['Date'].dt.date
+    unit_report.columns = ['Mask', 'Date', 'Unit', 'Qty']
+    unit_report = unit_report[['Unit', 'Date', 'Mask', 'Qty']]
+    unit_report['Mask'] = unit_report['Mask'].astype('category')
+    unit_report['Date'] = unit_report['Date'].dt.date
 
-    report['Mask'].replace({
+    unit_report['Mask'].replace({
         'FILTER PFR95 RESPIRATOR REG SIZE': 'Halyard Duckbill Reg',
         'GERSON N95 MASK RESPIRATOR 1730': 'Gerson 1730',
         'GERSON N95 MASK RESPIRATOR 82130': 'Gerson 82130',
@@ -21,7 +21,7 @@ def unit_totals(path, dest):
     }, inplace=True)
 
     # Unit Totals
-    unit_total = report[['Unit', 'Qty']]
+    unit_total = unit_report[['Unit', 'Qty']]
     unit_total.columns = ['Unit', 'Unit Total']
     units = unit_total.groupby('Unit')
     df = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
