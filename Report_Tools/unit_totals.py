@@ -31,11 +31,7 @@ def unit_totals(path, dest):
     book = load_workbook(dest)
     writer.book = book
     df.to_excel(writer, sheet_name="Unit Totals")
+    sheet = book.get_sheet_by_name("Unit Totals")
+    sheet.column_dimensions["A"].width = 30
     writer.save()
     writer.close()
-
-    # Adjust Column Width
-    # writer_2 = pd.ExcelWriter(dest, engine="xlsxwriter")
-    # worksheet = writer_2.sheets['Unit Totals']
-    # worksheet.set_column("A:A", 30)
-
