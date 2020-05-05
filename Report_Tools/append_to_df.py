@@ -23,6 +23,7 @@ def add_daily_total(path, dest, ref):
     n95_daily_totals.set_index(keys="Date", inplace=True)
     n95_daily_totals.sort_index(ascending=False, inplace=True)
     # print(n95_daily_totals)
+    n95_daily_totals.to_excel(path)
 
     # Add Daily Total to the N95 Report
     writer = pd.ExcelWriter(dest, engine="openpyxl")

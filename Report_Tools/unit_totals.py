@@ -25,6 +25,7 @@ def unit_totals(path, dest):
     unit_total.columns = ['Unit', 'Unit Total']
     units = unit_total.groupby('Unit')
     df = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
+    unit_report.to_excel(path)
 
     # Add Units Totals Sheet to N95 Report
     writer = pd.ExcelWriter(dest, engine="openpyxl")
