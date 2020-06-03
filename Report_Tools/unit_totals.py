@@ -2,7 +2,7 @@ import pandas as pd
 from openpyxl import load_workbook
 
 
-def unit_totals(path, dest):
+def unit_totals(path):
     unit_report = pd.read_excel(path)
     pd.set_option('display.width', 400)
     pd.set_option('display.max_columns', None)
@@ -21,30 +21,11 @@ def unit_totals(path, dest):
     }, inplace=True)
 
     unit_report = unit_report.set_index("Date")
-    unit_report.to_excel(path)
-    writer = pd.ExcelWriter(path, engine="openpyxl")
-    book = load_workbook(path)
-    writer.book = book
-    sheet = book.get_sheet_by_name("Sheet1")
-    sheet.column_dimensions["A"].width = 14
-    sheet.column_dimensions["B"].width = 30
-    sheet.column_dimensions["C"].width = 30
-    sheet.column_dimensions["D"].width = 14
-    writer.save()
-    writer.close()
 
-    # Unit Totals
+    # Unit Totals DataFrame
     unit_total = unit_report[['Unit', 'Qty']]
     unit_total.columns = ['Unit', 'Unit Total']
     units = unit_total.groupby('Unit')
-    df = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
+    unit_total = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
 
-    # Add Units Totals Sheet to N95 Report
-    writer = pd.ExcelWriter(dest, engine="openpyxl")
-    book = load_workbook(dest)
-    writer.book = book
-    df.to_excel(writer, sheet_name="Unit Totals")
-    sheet = book.get_sheet_by_name("Unit Totals")
-    sheet.column_dimensions["A"].width = 30
-    writer.save()
-    writer.close()
+    return unit_report, unit_total
