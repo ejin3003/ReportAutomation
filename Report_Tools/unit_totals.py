@@ -20,12 +20,24 @@ def unit_totals(path, dest):
         'MASK RESPIRATOR SM CS/6BX/35EA': 'Halyard Duckbill Small'
     }, inplace=True)
 
+    unit_report = unit_report.set_index("Date")
+    unit_report.to_excel(path)
+    writer = pd.ExcelWriter(path, engine="openpyxl")
+    book = load_workbook(path)
+    writer.book = book
+    sheet = book.get_sheet_by_name("Sheet1")
+    sheet.column_dimensions["A"].width = 14
+    sheet.column_dimensions["B"].width = 30
+    sheet.column_dimensions["C"].width = 30
+    sheet.column_dimensions["D"].width = 14
+    writer.save()
+    writer.close()
+
     # Unit Totals
     unit_total = unit_report[['Unit', 'Qty']]
     unit_total.columns = ['Unit', 'Unit Total']
     units = unit_total.groupby('Unit')
     df = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
-    unit_report.to_excel(path)
 
     # Add Units Totals Sheet to N95 Report
     writer = pd.ExcelWriter(dest, engine="openpyxl")
