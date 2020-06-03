@@ -19,7 +19,8 @@ daily_totals = r"C:\Users\jt883\Desktop\N95 Daily Totals.xlsx"
 # n95_report_dest = r"C:\Users\ejin3\OneDrive\Desktop\CS N95 Report {}.xlsx".format(yesterday)
 # daily_totals = r"C:\Users\ejin3\OneDrive\Desktop\N95 Daily Totals.xlsx"
 
-rename_n95_report(n95_report_path, n95_report_dest)
+sheet_1 = rename_n95_report(n95_report_path)
+
 unit_totals(unit_total_path, n95_report_dest)
 format_report(n95_report_dest)
 add_daily_total(daily_totals, n95_report_dest, unit_total_path)
