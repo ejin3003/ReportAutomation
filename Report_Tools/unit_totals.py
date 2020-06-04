@@ -21,6 +21,7 @@ def unit_totals(path):
     }, inplace=True)
 
     unit_report = unit_report.set_index("Date")
+    total = unit_report["Qty"].sum()
 
     # Unit Totals DataFrame
     unit_total = unit_report[['Unit', 'Qty']]
@@ -28,4 +29,4 @@ def unit_totals(path):
     units = unit_total.groupby('Unit')
     unit_total = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
 
-    return unit_report, unit_total
+    return unit_report, unit_total, total
