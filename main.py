@@ -1,6 +1,5 @@
 from Report_Tools.rename_report_cells import *
 from Report_Tools.unit_totals import *
-from Report_Tools.format_sheets import *
 from Report_Tools.append_to_df import *
 from Report_Tools.rep_xlsxwriter import *
 from datetime import date
@@ -8,14 +7,14 @@ from datetime import timedelta
 
 yesterday = date.today() - timedelta(days=1)
 
-# Renames columns and mask names within the Customer Service N95 Report >> Also appends unit totals to N95 Report
+# Work File Paths & Destinations
 n95_report_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
 unit_total_path = r"C:\Users\jt883\Desktop\Raw CS Data N95.xlsx"
+daily_totals_path = r"C:\Users\jt883\Desktop\N95 Daily Totals.xlsx"
 n95_report_dest = r"C:\Users\jt883\Desktop\CS N95 Report {}.xlsx".format(yesterday)
 raw_report_dest = r"C:\Users\jt883\Desktop\Raw CS Data N95 {}.xlsx".format(yesterday)
-daily_totals_path = r"C:\Users\jt883\Desktop\N95 Daily Totals.xlsx"
 
-# Home File Path
+# Home File Paths & Destinations
 # n95_report_path = r"C:\Users\ejin3\OneDrive\Desktop\N95 Report.xlsx"
 # unit_total_path = r"C:\Users\ejin3\OneDrive\Desktop\Raw CS Data N95.xlsx"
 # n95_report_dest = r"C:\Users\ejin3\OneDrive\Desktop\CS N95 Report {}.xlsx".format(yesterday)
