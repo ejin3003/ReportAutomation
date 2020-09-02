@@ -7,7 +7,7 @@ Automated N95 Report
 
 <details open>
   <summary>Open Markdown</summary>
-      Self-reference
+  <b>Self-reference</b>
   </details>
 
 
