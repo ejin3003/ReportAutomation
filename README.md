@@ -2,12 +2,12 @@
 Automated N95 Report
 
 <details open>
-  <summary>How to start with open dropdown?</summary>
+  <summary>Open Markdown</summary>
     [ERROR] Self-reference
   </details>
 
 
-<details open>
+<details>
 <summary>Closed Markdown</summary>
 <br>
 Well, you asked for it!
