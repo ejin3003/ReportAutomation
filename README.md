@@ -7,14 +7,14 @@ Automated N95 Report
 
 <details open>
   <summary>Open Markdown</summary>
-  - Self-reference
+  <li>Self-reference</li>
   </details>
 
 
 <details>
 <summary>Closed Markdown</summary>
 <br>
-- Well, you asked for it!
+  <li>Well, you asked for it!</li>
 </details>
 
 <pre>
