@@ -1,7 +1,7 @@
 # MGH_Rep_Automation
-Automated N95 Report
+Automated Reports
 
-## Personal Reminder: Do not post any information on the current status of hospital operations.
+## Reminder: ### Do not post any information on the current status of hospital operations.
 ### Testing Triple Hash
 ## Testing Double Hash
 **Testing Asterisk:**
