@@ -1,7 +1,8 @@
 # MGH_Rep_Automation
-This purpose of this module is to design custom python functions that preps various excel reports for MGH:Materials Management Senior Leadership.
-
+This purpose of this module is to design custom python functions.
+The purpose of these custom functions is to automate redudant/repetitive excel reports required by MGH leadership.
 ### Reminder: Do not post any information on the current status of hospital operations.
+
 ### Testing Triple Hash
 ## Testing Double Hash
 **Testing Asterisk:**
