@@ -1,5 +1,5 @@
 # MGH_Rep_Automation
-Automated Reports
+This purpose of this module is to design custom python functions that preps various excel reports for MGH:Materials Management Senior Leadership.
 
 ### Reminder: Do not post any information on the current status of hospital operations.
 ### Testing Triple Hash
