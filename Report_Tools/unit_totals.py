@@ -30,3 +30,12 @@ def unit_totals(path):
     unit_total = pd.DataFrame(units.sum()).sort_values('Unit Total', ascending=False)
 
     return unit_report, unit_total, total
+
+
+# n95_raw_path = r"C:\Users\jt883\Desktop\Raw CS Data N95.xlsx"
+# dest = r"C:\Users\jt883\Desktop\test.xlsx"
+# dest_1 = r"C:\Users\jt883\Desktop\unit totals.xlsx"
+#
+# unit_report_df, unit_total_df, total = unit_totals(n95_raw_path)
+# # unit_report_df.to_excel(dest)
+# unit_total_df.to_excel(dest_1)

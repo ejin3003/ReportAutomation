@@ -26,3 +26,9 @@ def rename_n95_report(path):
     # n95_report.to_excel(dest, sheet_name=sheet_1)
 
     return n95_report
+
+
+# n95_report_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
+# dest = r"C:\Users\jt883\Desktop\N95 Rep 10.09.20...10.14.20.xlsx"
+# n95_rep = rename_n95_report(n95_report_path)
+# n95_rep.to_excel(dest)
