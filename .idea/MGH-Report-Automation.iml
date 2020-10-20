@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/PIL" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/Pillow-8.0.0.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/certifi" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/certifi-2020.6.20.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/dateutil" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/et_xmlfile" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/et_xmlfile-1.0.1-py3.8.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/jdcal-1.4.1.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/kiwisolver-1.2.0.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/matplotlib" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/matplotlib-3.3.2.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/mpl_toolkits" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/numpy" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/numpy-1.19.2.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/openpyxl" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/openpyxl-3.0.5.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pandas" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pandas-1.1.3.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip-20.2.4.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip/_internal/index" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip/_internal/network" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip/_internal/operations/build" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip/_internal/operations/install" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip/_internal/resolution" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip/_vendor/resolvelib" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pip/_vendor/toml" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/psycopg2" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/psycopg2-2.8.6.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pyparsing-2.4.7.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/python_dateutil-2.8.1.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pytz" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/pytz-2020.1.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/scipy" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/scipy-1.5.3.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/seaborn" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/seaborn-0.11.0.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/six-1.15.0.dist-info" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/xlrd" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/Lib/site-packages/xlrd-1.2.0.dist-info" />
+    </content>
     <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
