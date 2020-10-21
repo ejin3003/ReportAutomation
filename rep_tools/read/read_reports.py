@@ -3,7 +3,7 @@ import pandas as pd
 
 class ReadReports:
     """
-    Functions designed to alter existing excel reports
+    Functions designed to read existing excel reports
     """
 
     def __init__(self, path):
