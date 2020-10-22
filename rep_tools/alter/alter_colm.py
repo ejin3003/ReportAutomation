@@ -1,3 +1,5 @@
+import pandas as pd
+
 
 class AlterColumns:
     """
@@ -13,5 +15,15 @@ class AlterColumns:
         2. If list_colm_names = total_df_colm then rename the df colm according to the list
 
         """
-        pass
+        len_col_lst = len(self.colm_lst)
+
+        df_colm = pd.DataFrame(self.df)
+        len_df_colm = len(df_colm.columns)
+
+        print(pd.DataFrame(self.df))
+        # print(len_col_lst)
+        # print(len_df_colm)
+
+
+
 
