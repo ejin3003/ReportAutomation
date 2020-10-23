@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def rename_n95_report(path):
+def alter_cs_n95_rep(path):
     """
     Function: Alters Customer Service N95 Excel Data
         1. Renames columns
