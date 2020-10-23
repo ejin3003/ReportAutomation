@@ -12,7 +12,7 @@ def alter_cs_n95_rep(path):
     pd.set_option('display.max_columns', None)
     n95_report.columns = ['Unit', 'Date', 'Mask', 'Total', 'Unit Total', 'Grand Total']
     n95_report['Mask'] = n95_report['Mask'].astype('category')
-    n95_report['Date'] = n95_report['Date'].dt.date
+    # n95_report['Date'] = n95_report['Date'].dt.date
     n95_report.set_index('Date', inplace=True)
 
     n95_report['Mask'].replace({
