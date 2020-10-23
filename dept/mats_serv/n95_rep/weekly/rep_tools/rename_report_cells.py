@@ -1,9 +1,12 @@
 import pandas as pd
-from datetime import date
-from datetime import timedelta
 
 
 def rename_n95_report(path):
+    """
+    Function: Alters Customer Service N95 Excel Data
+        1. Renames columns
+        2. Renames N95 Masks for clarity
+    """
     n95_report = pd.read_excel(path)
     pd.set_option('display.width', 400)
     pd.set_option('display.max_columns', None)
@@ -21,14 +24,11 @@ def rename_n95_report(path):
         'MASK RESPIRATOR SM CS/6BX/35EA': 'Halyard Duckbill Small'
     }, inplace=True)
 
-    # yesterday = date.today() - timedelta(days=1)
-    # sheet_1 = f"CS N95 Report {yesterday}"
-    # n95_report.to_excel(dest, sheet_name=sheet_1)
-
     return n95_report
 
 
-n95_report_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
-dest = r"C:\Users\jt883\Desktop\N95 Rep 10.12.20...10.18.20.xlsx"
-n95_rep = rename_n95_report(n95_report_path)
-n95_rep.to_excel(dest)
+# Runs Function Independently
+# n95_report_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
+# dest = r"C:\Users\jt883\Desktop\N95 Rep 10.12.20...10.18.20.xlsx"
+# n95_rep = rename_n95_report(n95_report_path)
+# n95_rep.to_excel(dest)

@@ -28,7 +28,7 @@ def rename_n95_report(path):
     return n95_report
 
 
-n95_report_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
-dest = r"C:\Users\jt883\Desktop\N95 Rep 10.12.20...10.18.20.xlsx"
-n95_rep = rename_n95_report(n95_report_path)
-n95_rep.to_excel(dest)
+# n95_report_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
+# dest = r"C:\Users\jt883\Desktop\N95 Rep 10.12.20...10.18.20.xlsx"
+# n95_rep = rename_n95_report(n95_report_path)
+# n95_rep.to_excel(dest)
