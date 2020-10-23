@@ -12,8 +12,8 @@ def main():
     Daily N95 Report: Products an excel report which displays the quantity of "N95 Masks" ordered by unit for the
     previous day
     """
-    my_date = date.today()
-    day_name = calendar.day_name[my_date.weekday()]
+    today_date = date.today()
+    day_name = calendar.day_name[today_date.weekday()]
     if day_name == "Friday":
         """
         Weekly N95 Report: Produces an excel report which displays the quantity of "N95 Masks" ordered by unit for the 
