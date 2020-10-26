@@ -1,4 +1,8 @@
 import pandas as pd
+"""
+MS SERVER FOLDER: JB_CART_ITEMS_ALL_PHS_CARTS
+"""
+
 # path = r"C:\Users\tyson\OneDrive\Desktop\MS\JB_CART_ITEMS_ALL_PHS_CARTS\JB_CART_ITEMS_MGH-26812916.csv"
 path = r"C:\Users\ejin3\OneDrive\Desktop\Materials Service\MS Server Dump\JB_CART_ITEMS_ALL_PHS_CARTS\JB_CART_ITEMS_MGH-26812916.csv"
 # path.encode('utf-8').strip()
