@@ -14,7 +14,7 @@ def main():
     """
     today_date = date.today()
     day_name = calendar.day_name[today_date.weekday()]
-    if day_name == "Friday":
+    if day_name == "Monday":
         """
         Weekly N95 Report: Produces an excel report which displays the quantity of "N95 Masks" ordered by unit for the 
         past 7 days.
