@@ -3,11 +3,11 @@ pd.set_option("display.width", 400)
 pd.set_option("display.max_columns", None)
 
 # Import Epic Productivity Report
-extract_rep = r"C:\Users\tyson\OneDrive\Desktop\Sept 2020 Prod Extract.xlsx"
+extract_rep = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\PROD. REPS\Oct 2020 Prod Extract.xlsx"
 extract_df = pd.read_excel(extract_rep)
 
 # Import Extracted Epic Activity Report
-act_rep = r"C:\Users\tyson\OneDrive\Desktop\Sept 2020 Act Rep.xlsx"
+act_rep = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\ACT. REPS\Oct 2020 Act Rep.xlsx"
 df = pd.read_excel(act_rep)
 
 # Fill null values and set column types
@@ -51,4 +51,4 @@ new_extract_rep["Total Patient"] = new_extract_rep["Total Patient"].astype(int)
 new_extract_rep["Total Non-Patient"] = new_extract_rep["Total Non-Patient"].astype(int)
 new_extract_rep["Assigned To ID"] = new_extract_rep["Assigned To ID"].astype(int)
 
-new_extract_rep.to_excel(r"C:\Users\tyson\OneDrive\Desktop\Sept 2020 Prod Alter.xlsx")
+new_extract_rep.to_excel(r"C:\Users\tyson\OneDrive\Desktop\Oct 2020 Prod Alter.xlsx")

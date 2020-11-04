@@ -1,10 +1,12 @@
 import pandas as pd
+from rep_tools.alter.act_rep_cleaner import clean_act_rep
 
-# act_rep_path = r"C:\Users\tyson\OneDrive\Desktop\July 2020 Act Rep.xlsx"
-# prod_rep_path = r"C:\Users\tyson\OneDrive\Desktop\July 2020 Prod Rep.xlsx"
+act_rep_path = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\ACT. REPS\Oct 2020 Act Rep.xlsx"
+prod_rep_path = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\PROD. REPS\Oct 2020 Prod Extract.xlsx"
 
-act_rep_path = r"C:\Users\jt883\Desktop\July 2020 Act Rep.xlsx"
-prod_rep_path = r"C:\Users\jt883\Desktop\July 2020 Prod Rep.xlsx"
+
+# act_rep_path = r"C:\Users\jt883\Desktop\July 2020 Act Rep.xlsx"
+# prod_rep_path = r"C:\Users\jt883\Desktop\July 2020 Prod Rep.xlsx"
 
 act_df = clean_act_rep(act_rep_path)
 prod_df = filter_rows(prod_rep_path)
