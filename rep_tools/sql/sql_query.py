@@ -1,7 +1,7 @@
 import pandas as pd
 import pandas.io.sql as sqlio
 import psycopg2
-from sql.sql_upload import connect
+from rep_tools.sql.sql_upload import connect
 pd.set_option("display.width", 400)
 pd.set_option("display.max_columns", None)
 
@@ -24,13 +24,13 @@ sql = "SELECT pr.fullname, pr.completed, pr.canceled, pr.escalations, pr.delay_t
       "ack_comp, working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, " \
       "mm.shift FROM prod_data pr " \
       "INNER JOIN mm_staff mm ON pr.epic_id = mm.epic_id " \
-      "WHERE pr.month = 'September';"
+      "WHERE pr.month = 'October';"
 
 df = sqlio.read_sql_query(sql, conn)
 conn.close()
 
 print(df.head(3))
 df.set_index('fullname', inplace=True)
-df.to_excel(r"C:\Users\tyson\OneDrive\Desktop\Sept 2020 prod perfected.xlsx")
+df.to_excel(r"C:\Users\tyson\OneDrive\Desktop\Oct 2020 prod perfected.xlsx")
 
 

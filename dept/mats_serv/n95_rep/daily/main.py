@@ -1,7 +1,7 @@
-from dept.mats_serv.n95_rep.daily.rep_tools.rename_report_cells import rename_n95_report
-from dept.mats_serv.n95_rep.daily.rep_tools.unit_totals import unit_totals
-from dept.mats_serv.n95_rep.daily.rep_tools.append_to_df import add_daily_total
-from dept.mats_serv.n95_rep.daily.rep_tools.rep_xlsxwriter import create_raw_report, create_n95_report, create_daily_totals_ref
+from dept.mats_serv.n95_rep.daily.rep_func.rename_report_cells import rename_n95_report
+from dept.mats_serv.n95_rep.daily.rep_func.unit_totals import unit_totals
+from dept.mats_serv.n95_rep.daily.rep_func.append_to_df import add_daily_total
+from dept.mats_serv.n95_rep.daily.rep_func.rep_xlsxwriter import create_raw_report, create_n95_report, create_daily_totals_ref
 from datetime import date
 from datetime import timedelta
 
