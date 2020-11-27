@@ -1,4 +1,4 @@
-from dept.patient_esc.rep_func.extract_reports import ExtractData
+from dept.patient_esc.central.rep_func.extract_reports import ExtractData
 
 
 def main():
