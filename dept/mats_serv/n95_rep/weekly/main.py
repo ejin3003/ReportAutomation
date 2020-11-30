@@ -19,7 +19,7 @@ def main():
         Weekly N95 Report: Produces an excel report which displays the quantity of "N95 Masks" ordered by unit for the 
         past 7 days.
         """
-        prev_week = str(date.today() - timedelta(days=7)) + "..." + str(date.today())
+        prev_week = str(date.today() - timedelta(days=7)) + "..." + str(date.today() - timedelta(days=1))
 
         # File Paths & Destinations
         n95_rep_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
