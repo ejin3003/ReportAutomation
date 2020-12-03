@@ -18,7 +18,7 @@ class ExtractData:
         target_row = 0
         for row in range(df.shape[0]):
             if df.at[row, "Transporter"] == "Average":
-                print(row, "Transporter")
+                # print(row, "Transporter")
                 target_row = row
                 break
         new_df = df.iloc[:target_row]
