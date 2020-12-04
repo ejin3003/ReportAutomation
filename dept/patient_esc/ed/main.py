@@ -8,7 +8,9 @@ def main():
     pass
 
 
-df = pd.read_excel(r"C:\Users\jt883\Desktop\ed 11.26.20.xlsx")
+df = pd.read_excel(r"C:\Users\jt883\Desktop\ED Act Rep Nov 2020.xlsx")
+pd.set_option("display.width", 400)
+pd.set_option("display.max_columns", None)
 
 # Removes all of the canceled transports
 mask_1 = df["Status"] != "Canceled"
@@ -26,3 +28,5 @@ for num in range(len(col_lst)):
 
 # Removes time from "Transport Date" column
 df["Transport Date"] = df["Transport Date"].dt.date
+
+print(df.describe())
