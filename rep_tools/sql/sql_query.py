@@ -24,13 +24,13 @@ sql = "SELECT pr.fullname, pr.completed, pr.canceled, pr.escalations, pr.delay_t
       "ack_comp, working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, " \
       "mm.shift FROM prod_data pr " \
       "INNER JOIN mm_staff mm ON pr.epic_id = mm.epic_id " \
-      "WHERE pr.month = 'October';"
+      "WHERE pr.month = 'November';"
 
 df = sqlio.read_sql_query(sql, conn)
 conn.close()
 
 print(df.head(3))
 df.set_index('fullname', inplace=True)
-df.to_excel(r"C:\Users\tyson\OneDrive\Desktop\Oct 2020 prod perfected.xlsx")
+df.to_excel(r"C:\Users\tyson\OneDrive\Desktop\Prod SQL Alter Nov 2020.xlsx")
 
 

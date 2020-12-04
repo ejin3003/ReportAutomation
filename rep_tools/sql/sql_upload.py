@@ -75,7 +75,7 @@ def main(path):
         conn.close()
 
 
-# rep_path = r"C:\Users\tyson\OneDrive\Desktop\Oct 2020 Prod Alter.xlsx"
+# rep_path = r"C:\Users\tyson\OneDrive\Desktop\Prod Extract Nov 2020.xlsx"
 # main(rep_path)
 
 
