@@ -39,34 +39,19 @@ def main():
     prod_df_extracted = prod_df.set_index("Transporter").join(escort_df.set_index("Assigned To"))
 
     # Fill null values
-    prod_df_extracted["Ack -> In P"].fillna(0, inplace=True)
-    prod_df_extracted["In P -> Comp"].fillna(0, inplace=True)
-    prod_df_extracted["Ack -> Comp"].fillna(0, inplace=True)
-    prod_df_extracted["Assigned To ID"].fillna(0, inplace=True)
-
+    col_lst = ["Ack -> In P", "In P -> Comp", "Ack -> Comp", "Assigned To ID"]
+    for num in range(len(col_lst)):
+        col_name = col_lst[num]
+        prod_df_extracted[col_name].fillna(0, inplace=True)
 
     # Set column types
-    # prod_df_extracted["Completed"] = prod_df_extracted["Completed"]
-    prod_df_extracted["Completed"] = pd.to_numeric(prod_df_extracted["Completed"], errors='coerce').astype(int)
-    # prod_df_extracted["Canceled"] = prod_df_extracted["Canceled"].astype(int)
-    prod_df_extracted["Canceled"] = pd.to_numeric(prod_df_extracted["Canceled"], errors='coerce').astype(int)
-    # prod_df_extracted["Outliers"] = prod_df_extracted["Outliers"].astype(int)
-    prod_df_extracted["Outliers"] = pd.to_numeric(prod_df_extracted["Outliers"], errors='coerce').astype(int)
-    # prod_df_extracted["Escalations"] = prod_df_extracted["Escalations"].astype(int)
-    prod_df_extracted["Escalations"] = pd.to_numeric(prod_df_extracted["Escalations"], errors='coerce').astype(int)
-    # prod_df_extracted["Delay Time"] = prod_df_extracted["Delay Time"].astype(int)
-    # prod_df_extracted["Ack -> In P"] = prod_df_extracted["Ack -> In P"].astype(int)
-    # prod_df_extracted["In P -> Comp"] = prod_df_extracted["In P -> Comp"].astype(int)
-    # prod_df_extracted["Ack -> Comp"] = prod_df_extracted["Ack -> Comp"].astype(int)
-    # prod_df_extracted["Total Patient"] = prod_df_extracted["Total Patient"].astype(int)
-    # prod_df_extracted["Total Non-Patient"] = prod_df_extracted["Total Non-Patient"].astype(int)
-    # prod_df_extracted["Assigned To ID"] = prod_df_extracted["Assigned To ID"].astype(int)
+    col_lst_2 = ["Completed", "Canceled", "Outliers", "Escalations", "Delay Time", "Ack -> In P", "In P -> Comp",
+                 "Ack -> Comp", "Total Patient", "Total Non-Patient", "Assigned To ID"]
+    for num in range(len(col_lst_2)):
+        col_name = col_lst_2[num]
+        prod_df_extracted[col_name] = pd.to_numeric(prod_df_extracted[col_name], errors='coerce').astype(int)
 
-    # prod_df_extracted.to_excel(prod_rep_file_dest)
-
-    # prod_df.to_excel(prod_rep_file_dest)
-
-    print(prod_df_extracted.head())
+    prod_df_extracted.to_excel(prod_rep_file_dest)
 
 
 if __name__ == "__main__":
