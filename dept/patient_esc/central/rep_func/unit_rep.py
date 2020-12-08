@@ -30,4 +30,5 @@ pkup_dept_df = gb_pkup_dept.agg({
     'Pick-Up Department': 'count'
 })
 
+print(df["Assigned To"].unique())
 # pkup_dept_df = pkup_dept_df.sort_values(ascending=False)
