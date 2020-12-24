@@ -1,7 +1,7 @@
-from dept.mats_serv.n95_rep.weekly.rep_func.rename_report_cells import alter_cs_n95_rep
-from dept.mats_serv.n95_rep.weekly.rep_func.unit_totals import unit_totals
-from dept.mats_serv.n95_rep.weekly.rep_func.append_to_df import add_weekly_total
-from dept.mats_serv.n95_rep.weekly.rep_func.rep_xlsxwriter import create_n95_report, create_daily_totals_ref
+from rep_func.rename_report_cells import alter_cs_n95_rep
+from rep_func.unit_totals import unit_totals
+from rep_func.append_to_df import add_weekly_total
+from rep_func.rep_xlsxwriter import create_n95_report, create_daily_totals_ref
 from datetime import date
 from datetime import timedelta
 import calendar
@@ -14,7 +14,7 @@ def main():
     """
     today_date = date.today()
     day_name = calendar.day_name[today_date.weekday()]
-    if day_name == "Monday":
+    if day_name == "Thursday":
         """
         Weekly N95 Report: Produces an excel report which displays the quantity of "N95 Masks" ordered by unit for the 
         past 7 days.
