@@ -6,7 +6,7 @@ def create_n95_report(dest, df_1, df_2, df_3, df_4):
 
     df_1.to_excel(writer, sheet_name="CS N95 Report", index=False)
     df_2.to_excel(writer, sheet_name="Unit Totals")
-    df_3.to_excel(writer, sheet_name="Daily Totals")
+    df_3.to_excel(writer, sheet_name="Weekly Totals")
     df_4.to_excel(writer, sheet_name="Raw Data")
 
     workbook = writer.book
@@ -18,7 +18,7 @@ def create_n95_report(dest, df_1, df_2, df_3, df_4):
     worksheet_2.set_column("A:A", 30)
     worksheet_2.set_column("B:B", 14)
 
-    worksheet_3 = writer.sheets["Daily Totals"]
+    worksheet_3 = writer.sheets["Weekly Totals"]
     worksheet_3.set_column("A:A", 20)
     worksheet_3.set_column("B:B", 14)
 
