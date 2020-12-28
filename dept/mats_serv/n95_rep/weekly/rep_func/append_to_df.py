@@ -27,7 +27,7 @@ def add_weekly_total(path, total):
 
     # n95_weekly_totals["Date"] = n95_weekly_totals["Date"].dt.date
 
-    prev_week = str(date.today() - timedelta(days=7)) + "..." + str(date.today())
+    prev_week = str(date.today() - timedelta(days=7)) + "..." + str(date.today() - timedelta(days=1))
 
     df = [{
         "Date": prev_week,

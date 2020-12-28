@@ -14,7 +14,7 @@ def main():
     """
     today_date = date.today()
     day_name = calendar.day_name[today_date.weekday()]
-    if day_name == "Thursday":
+    if day_name == "Monday":
         """
         Weekly N95 Report: Produces an excel report which displays the quantity of "N95 Masks" ordered by unit for the 
         past 7 days.
@@ -24,7 +24,7 @@ def main():
         # File Paths & Destinations
         n95_rep_path = r"C:\Users\jt883\Desktop\N95 Report.xlsx"
         raw_cs_data_path = r"C:\Users\jt883\Desktop\Raw CS Data N95.xlsx"
-        weekly_totals_path = r"C:\Users\jt883\Desktop\N95 Weekly Totals.xlsx"
+        weekly_totals_path = r"C:\Users\jt883\Desktop\Weekly N95 Totals.xlsx"
         dest_weekly_n95_rep = r"C:\Users\jt883\Desktop\Weekly CS N95 Report {}.xlsx".format(prev_week)
 
         # Creates DataFrames for the construction of the "Weekly N95 Report"
