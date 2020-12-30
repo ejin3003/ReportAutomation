@@ -1,4 +1,9 @@
 
-lst = ['One', 'two', 'three']
+for x in range(1, 10):
+    print(x)
 
-print("One" not in lst)
+# lst = ["One", "Two", "Three", "Four"]
+#
+# for y in range(len(lst)):
+#     print(y)
+
