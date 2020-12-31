@@ -18,4 +18,4 @@ for file_2 in os.listdir(path_mgh_90):
     if os.path.getmtime(os.path.join(path_mgh_90, file_2)) < now - 7 * 86400:
         if os.path.isfile(os.path.join(path_mgh_90, file_2)):
             os.remove(os.path.join(path_mgh_90, file_2))
-                          
+
