@@ -9,7 +9,7 @@ params_dict = {
     "host": "localhost",
     "database": "epic_data",
     "user": "postgres",
-    "password": "Dragonleaf7"
+    "password": "mgh3003"
 }
 conn = connect(params_dict)
 # sql = "SELECT * FROM prod_data;"
@@ -24,13 +24,13 @@ sql = "SELECT pr.fullname, pr.completed, pr.canceled, pr.escalations, pr.delay_t
       "ack_comp, working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, " \
       "mm.shift FROM prod_data pr " \
       "INNER JOIN mm_staff mm ON pr.epic_id = mm.epic_id " \
-      "WHERE pr.month = 'November';"
+      "WHERE pr.month = 'December';"
 
 df = sqlio.read_sql_query(sql, conn)
 conn.close()
 
 print(df.head(3))
 df.set_index('fullname', inplace=True)
-df.to_excel(r"C:\Users\tyson\OneDrive\Desktop\Prod SQL Alter Nov 2020.xlsx")
+df.to_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod SQL Alter Dec 2020.xlsx")
 
 

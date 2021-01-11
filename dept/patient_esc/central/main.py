@@ -7,10 +7,10 @@ def main():
     Extracts a specified section of data from previous months EPIC SYSTEMS: Excel Productivity Report.
     Exports the Extract Excel Productivity Report to the designated filepath.
     """
-    prod_rep_file_path = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\PROD. REPS\Prod Rep Nov 2020.xlsx"
-    act_rep_file_path = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\ACT. REPS\Act Rep Nov 2020.xlsx"
+    prod_rep_file_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Jan 2020.xlsx"
+    act_rep_file_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Jan 2020.xlsx"
     # prod_rep_file_dest = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\PROD. REPS\Prod Extract Nov 2020.xlsx"
-    prod_rep_file_dest = r"C:\Users\tyson\OneDrive\Desktop\Prod Extract Nov 2020.xlsx"
+    prod_rep_file_dest = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
 
     prod_rep = ExtractData(prod_rep_file_path)
     prod_df = prod_rep.extract_prod()

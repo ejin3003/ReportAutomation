@@ -38,7 +38,7 @@ def main(path):
         "host":  "localhost",
         "database": "epic_data",
         "user": "postgres",
-        "password": "Dragonleaf7"
+        "password": "mgh3003"
     }
 
     prod_rep = path
@@ -75,7 +75,7 @@ def main(path):
         conn.close()
 
 
-# rep_path = r"C:\Users\tyson\OneDrive\Desktop\Prod Extract Nov 2020.xlsx"
+# rep_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
 # main(rep_path)
 
 
