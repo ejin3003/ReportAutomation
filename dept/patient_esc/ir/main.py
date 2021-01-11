@@ -1,5 +1,5 @@
 import pandas as pd
-from dept.patient_esc.rep_func import extract_reports
+from collections import defaultdict
 
 """
 Researching a report focusing on escort transports for "MGH Interventional Radiology"
@@ -8,18 +8,9 @@ df = pd.read_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\IR Data\IR Data 12.01.20 - 
 pd.set_option("display.width", 400)
 pd.set_option("display.max_columns", None)
 
-# Exploring Data
-# print(df.head(3))
-# print(df.columns)
-
-# Filter out the records with a "Destination Department" of "MGH IMG IR ELL2"
-# mask = df["Destination Department"] == 'MGH IMG IR ELL2'
-# ir_dest_df = df[mask]
-# print(ir_dest_df.head(3))
-
 # Filter out the records with a "Sector" of "MGH Interventional Radiology"
-# mask = df["Sector"] == 'MGH Interventional Radiology'
-# ir_sector_df = df[mask]
+mask = df["Sector"] == 'MGH Interventional Radiology'
+ir_sector_df = df[mask]
 
 # Filter out desired columns
 columns = ['Transport Date', 'Transport Time', 'Assigned To', 'Pick-up Location', 'Location', 'Destination', 'Region',
@@ -29,3 +20,22 @@ columns = ['Transport Date', 'Transport Time', 'Assigned To', 'Pick-up Location'
            'Destination Department', 'Sector']
 ir_sector_df = ir_sector_df[columns]
 
+"""
+Rushed Code:file:"clean_epic_act_rep.py" Turn into Functions
+"""
+# Filter out records with a "Status" of "Canceled"
+mask = ir_sector_df["Status"] != 'Canceled'
+new_df = ir_sector_df[mask]
+
+# Uses a Reg Expression to remove the string from each column and convert the type to int
+new_df["Assigned To ID"] = new_df["Assigned To ID"].astype(int)
+new_df["Ack->Cmp"] = new_df["Ack->Cmp"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+new_df["Ack->InP"] = new_df["Ack->InP"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+new_df["Asgn->Ack"] = new_df["Asgn->Ack"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+new_df["Asgn->Cmp"] = new_df["Asgn->Cmp"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+new_df["InP->Cmp"] = new_df["InP->Cmp"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+new_df["Pnd->Asgn"] = new_df["Pnd->Asgn"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+new_df["Pnd->Cmp"] = new_df["Pnd->Cmp"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+new_df["Total Delay Time"] = new_df["Total Delay Time"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
+
+new_df.to_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\IR Data\Alter IR Data 12.01.20 - 1.09.21.xlsx")
