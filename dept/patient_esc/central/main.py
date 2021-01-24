@@ -1,17 +1,23 @@
 import pandas as pd
 from dept.patient_esc.central.rep_func.extract_reports import ExtractData
 
+# File Paths: EPIC's "Activity Report" & Productivity Report
+act_rep_file_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Jan 2020.xlsx"
+prod_rep_file_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Jan 2020.xlsx"
+
+# File Destinations:
+prod_rep_file_dest = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
+
 
 def main():
     """
-    Extracts a specified section of data from previous months EPIC SYSTEMS: Excel Productivity Report.
-    Exports the Extract Excel Productivity Report to the designated filepath.
+    1. Imports Epic's activity activity and productivity data.
+    2. Cleans & Filters data as needed
+    3. Finds any names escort names present in the activity data and absent from the productivity data
+    4. Imports altered data into a "Postgresql Database"
+    5. Extracts last months data from database for "Tableau Dashboard"
     """
-    prod_rep_file_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Jan 2020.xlsx"
-    act_rep_file_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Jan 2020.xlsx"
-    # prod_rep_file_dest = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\PROD. REPS\Prod Extract Nov 2020.xlsx"
-    prod_rep_file_dest = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
-
+    # Turns Epic's excel data into pandas dataframes
     prod_rep = ExtractData(prod_rep_file_path)
     prod_df = prod_rep.extract_prod()
     act_rep_df = pd.read_excel(act_rep_file_path)
