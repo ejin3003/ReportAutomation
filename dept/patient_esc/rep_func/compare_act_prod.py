@@ -1,6 +1,6 @@
 import pandas as pd
 from rep_tools.alter.act_rep_cleaner import clean_act_rep
-from dept.patient_esc.central.rep_func.extract_reports import ExtractData
+from dept.rep_func_new.extract_data import ExtractData
 
 act_rep_path = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\ACT. REPS\Oct 2020 Act Rep.xlsx"
 prod_rep_path = r"C:\Users\tyson\OneDrive\Desktop\MGH\EPIC\PROD. REPS\Oct 2020 Prod Rep.xlsx"

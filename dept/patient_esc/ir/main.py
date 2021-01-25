@@ -1,5 +1,4 @@
 import pandas as pd
-from collections import defaultdict
 
 """
 Researching a report focusing on escort transports for "MGH Interventional Radiology"

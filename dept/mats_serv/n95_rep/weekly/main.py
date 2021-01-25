@@ -1,7 +1,7 @@
-from rep_func.rename_report_cells import alter_cs_n95_rep
-from rep_func.unit_totals import unit_totals
-from rep_func.append_to_df import add_weekly_total
-from rep_func.rep_xlsxwriter import create_n95_report, create_daily_totals_ref
+from dept.rep_func_new import alter_cs_n95_rep
+from dept.rep_func_new import unit_totals
+from dept.rep_func_new import add_weekly_total
+from dept.rep_func_new import create_n95_report, create_daily_totals_ref
 from datetime import date
 from datetime import timedelta
 import calendar
