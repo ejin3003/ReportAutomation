@@ -66,10 +66,14 @@ def main():
 
 
 # File Paths: EPIC's "Activity Report" & Productivity Report
-path_act_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Dec 2020.xlsx"
-path_prd_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Dec 2020.xlsx"
+# path_act_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Dec 2020.xlsx"
+# path_prd_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Dec 2020.xlsx"
+
+path_act_rep = r"C:\Users\ejin3\OneDrive\Desktop\Oct 2020 Act Rep.xlsx"
+path_prd_rep = r"C:\Users\ejin3\OneDrive\Desktop\Oct 2020 Prod Rep.xlsx"
+
 # File Destination:
-dest_file = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
+# dest_file = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
 
 if __name__ == "__main__":
     main()

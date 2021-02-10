@@ -16,4 +16,5 @@ class CreateDataframe:
             msg_error = f"File was not found within specified filepath: {self.path}"
             print(msg_error)
         else:
+            print(type(df))
             return df
