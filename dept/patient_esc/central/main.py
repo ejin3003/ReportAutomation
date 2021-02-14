@@ -11,20 +11,16 @@ def main():
         4. Imports altered data into a "Postgresql Database"
         5. Extracts last months data from database for "Tableau Dashboard"
     """
-    # Turns Epic's excel data into pandas dataframes
-    prod_rep = CreateDataframe(path_prd_rep, header_num=1)
-    # df_prod_rep = prod_rep.excel_to_df()
-    prod_rep.excel_to_df()
-    # prod_rep = ExtractData(df_prod_rep)
-    # prod_df = prod_rep.extract_prod()
+    # Extracts summarized escort data from Epic's excel productivity report
+    obj_prod_rep = CreateDataframe(path_prd_rep, header_num=1)
+    df_prod_rep = obj_prod_rep.excel_to_df()
+    obj_prod_rep = ExtractData(df_prod_rep)
+    prod_df = obj_prod_rep.extract_prod()
 
-    # dct_cancel = {"Transporter": "Wahkor, Darryl"}
-    # alter_prd = AlterDataframe(prod_df, dct_cancel)
-    # alter_prd.filter_col_val()
+    obj_act_rep = CreateDataframe(path_act_rep)
+    act_rep_df = obj_act_rep.excel_to_df()
 
-    # act_rep_df = pd.read_excel(path_act_rep)
-    # act_rep = CreateDataframe(path_act_rep)
-    # act_rep.excel_to_df()
+
 
 
     # Activity Report: Fill null values and set column types
@@ -69,8 +65,8 @@ def main():
 # path_act_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Dec 2020.xlsx"
 # path_prd_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Dec 2020.xlsx"
 
-path_act_rep = r"C:\Users\ejin3\OneDrive\Desktop\Oct 2020 Act Rep.xlsx"
-path_prd_rep = r"C:\Users\ejin3\OneDrive\Desktop\Oct 2020 Prod Rep.xlsx"
+path_act_rep = r"C:\Users\ejin3\OneDrive\Desktop\Wrk\Epic\Oct 2020 Act Rep.xlsx"
+path_prd_rep = r"C:\Users\ejin3\OneDrive\Desktop\Wrk\Epic\Oct 2020 Prod Rep.xlsx"
 
 # File Destination:
 # dest_file = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
