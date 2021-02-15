@@ -28,7 +28,9 @@ def test_fill_null_set_type():
     # Test Function
     obj_df = AlterDataframe(df, dct)
     df = obj_df.fill_null_set_type()
-    print(df)
+    # print(df)
+    df_lst = df.values.tolist()
+    assert df_lst == [['Apple', 0], ['Unknown', 0], ['Pear', 3]]
 
 
-test_fill_null_set_type()
+# test_fill_null_set_type()
