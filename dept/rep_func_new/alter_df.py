@@ -11,7 +11,11 @@ class AlterDataframe:
         self.dct = dct
 
     def fill_null_set_type(self):
-        """df:Dataframe, dct:{column_1: ["col_1_name", "col_1_type"], ...}"""
+        """Fills null values and sets column types
+            dct:{
+                column_1: ["col_name", "str or int"],
+                column_2: ["col_name", "str or int"],
+             ...}"""
         for col in self.dct:
             col_name = self.dct[col][0]
             col_type = self.dct[col][1]
@@ -23,13 +27,25 @@ class AlterDataframe:
                 self.df[col_name] = self.df[col_name].astype(int)
         return self.df
 
-    def filter_col_val(self):
-        """Filter out a value within a single column"""
+    def filter_out_rows(self):
+        """Filter out a rows with a specific value within designated columns
+        dct:{"col_1": "val_1", "col_2": "val_2", ...}"""
+        # new_df = self.df.copy()
         for col_name in self.dct:
-            print(col_name)
-        pass
+            values_lst = self.dct[col_name]
+            mask = -self.df[col_name].isin(values_lst)
+            self.df = self.df[mask]
+        print(self.df)
+        return self.df
 
-    def rename_columns(self):
-        pass
+
+    # def rename_columns(self):
+    #     pass
 
 
+cols = ["Name", "Position", "Status"]
+data = [["Erza", "Leader", "Active"], ["Atlas", "Knight", "In-Active"], ["Sepra", "Spy", "Active"]]
+df = pd.DataFrame(data, columns=cols)
+dct = {"Position": ["Spy"], "Status": ["In-Active"]}
+obj_df = AlterDataframe(df, dct)
+df = obj_df.filter_out_rows()

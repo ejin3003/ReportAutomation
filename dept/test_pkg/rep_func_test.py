@@ -20,17 +20,24 @@ def test_extract_prod():
 
 
 def test_fill_null_set_type():
-    # Create a "Pandas DataFrame" & "Reference Dictionary" to test the function
+    """Tests the output of the function"""
     cols = ["Fruit", "Quantity"]
     data = [["Apple", np.nan], [np.nan, np.nan], ["Pear", 3]]
     dct = {"column_1": ["Fruit", "str"], "column_2": ["Quantity", "int"]}
     df = pd.DataFrame(data, columns=cols)
-    # Test Function
     obj_df = AlterDataframe(df, dct)
     df = obj_df.fill_null_set_type()
-    # print(df)
     df_lst = df.values.tolist()
     assert df_lst == [['Apple', 0], ['Unknown', 0], ['Pear', 3]]
 
 
-# test_fill_null_set_type()
+def test_filter_out_rows():
+    cols = ["Name", "Position", "Status"]
+    data = [["Erza", "Leader", "Active"], ["Atlas", "Knight", "In-Active"], ["Sepra", "Spy", "Active"]]
+    df = pd.DataFrame(data, columns=cols)
+    dct = {"Position": ["Spy"], "Status": ["In-Active"]}
+    obj_df = AlterDataframe(df, dct)
+    df = obj_df.filter_out_rows()
+    assert df == [["Name", "Position", "Status"]]
+
+
