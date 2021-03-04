@@ -6,36 +6,19 @@ import pandas as pd
 
 def main():
     """
-        1. Imports Epic's activity activity and productivity data.
-        2. Cleans & Filters data as needed
-        3. Finds any names escort names present in the activity data and absent from the productivity data
-        4. Imports altered data into a "Postgresql Database"
-        5. Extracts last months data from database for "Tableau Dashboard"
+    Produces an excel file from EPIC data for the dept. Tableau Dashboard.
     """
-    # Extracts summarized escort data from Epic's excel productivity report
-    obj_prod_rep = CreateDataframe(path_prd_rep, header_num=1)
-    df_prod_rep = obj_prod_rep.excel_to_df()
-    obj_prod_rep = ExtractData(df_prod_rep)
-    prod_df = obj_prod_rep.extract_prod()
-    print(prod_df.head())
-
-    obj_act_rep = CreateDataframe(path_act_rep)
-    act_rep = obj_act_rep.excel_to_df()
-
-    # Activity Report: Fill null values and set column types
-    dct = {"column_1": ["Assigned To ID", "int"]}
-    obj_act_df = AlterDataframe(act_rep, dct)
-    act_rep_df = obj_act_df.fill_null_set_type()
-    # print(act_rep_df.head(3))
-    # act_rep_df["Assigned To ID"].fillna(0, inplace=True)
-    # act_rep_df["Assigned To ID"] = act_rep_df["Assigned To ID"].astype(int)
-
-    # Activity Report: Filter out canceled records
-    mask = act_rep_df["Status"] != "Canceled"
-    act_rep_df = act_rep_df[mask]
+    # Preps EPIC's: Productivity Report Dataframe
+    df_prod_rep = CreateDataframe(path_prd_rep, header_num=1).excel_to_df()
+    prod_df = ExtractData(df_prod_rep).extract_prod()
+    # Preps EPIC's: Activity Report Dataframe
+    raw_act_df = CreateDataframe(path_act_rep).excel_to_df()
+    dct_1, dct_2 = {"column_1": ["Assigned To ID", "int"]}, {"Status": ["Canceled"]}
+    c_act_df = AlterDataframe(raw_act_df, dct_1).fill_null_set_type()
+    act_df = AlterDataframe(c_act_df, dct_2).filter_out_rows()
 
     # Creates a new df that extracts the unique values from "Assigned To" & "Assigned To Id in the productivity report
-    gb_escorts = act_rep_df.groupby("Assigned To ID")
+    gb_escorts = act_df.groupby("Assigned To ID")
     escort_id = gb_escorts["Assigned To"].unique()
     escort_df = pd.DataFrame(escort_id).reset_index()
 
@@ -68,8 +51,8 @@ def main():
 # path_act_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Dec 2020.xlsx"
 # path_prd_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Dec 2020.xlsx"
 
-path_act_rep = r"C:\Users\ejin3\OneDrive\Desktop\Wrk\Epic\Act Rep Jan 2021.xlsx"
-path_prd_rep = r"C:\Users\ejin3\OneDrive\Desktop\Wrk\Epic\Prod Rep Jan 2021.xlsx"
+path_act_rep = r"C:\Users\ejin3\OneDrive\Desktop\MGH\Epic\Act Rep Jan 2021.xlsx"
+path_prd_rep = r"C:\Users\ejin3\OneDrive\Desktop\MGH\Epic\Prod Rep Jan 2021.xlsx"
 dest_file = r"C:\Users\ejin3\OneDrive\Desktop\Prod Extract Jan 2021.xlsx"
 
 # File Destination:

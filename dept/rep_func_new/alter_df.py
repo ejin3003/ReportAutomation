@@ -35,17 +35,16 @@ class AlterDataframe:
             values_lst = self.dct[col_name]
             mask = -self.df[col_name].isin(values_lst)
             self.df = self.df[mask]
-        print(self.df)
+        # print(self.df)
         return self.df
-
 
     # def rename_columns(self):
     #     pass
 
 
-cols = ["Name", "Position", "Status"]
-data = [["Erza", "Leader", "Active"], ["Atlas", "Knight", "In-Active"], ["Sepra", "Spy", "Active"]]
-df = pd.DataFrame(data, columns=cols)
-dct = {"Position": ["Spy"], "Status": ["In-Active"]}
-obj_df = AlterDataframe(df, dct)
-df = obj_df.filter_out_rows()
+# cols = ["Name", "Position", "Status"]
+# data = [["Erza", "Leader", "Active"], ["Atlas", "Knight", "In-Active"], ["Sepra", "Spy", "Active"]]
+# df = pd.DataFrame(data, columns=cols)
+# dct = {"Position": ["Spy"], "Status": ["In-Active"]}
+# obj_df = AlterDataframe(df, dct)
+# df = obj_df.filter_out_rows()
