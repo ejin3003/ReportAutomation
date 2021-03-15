@@ -11,6 +11,7 @@ def main():
     # Preps EPIC's: Productivity Report Dataframe
     df_prod_rep = CreateDataframe(path_prd_rep, header_num=1).excel_to_df()
     prod_df = ExtractData(df_prod_rep).extract_prod()
+
     # Preps EPIC's: Activity Report Dataframe
     raw_act_df = CreateDataframe(path_act_rep).excel_to_df()
     dct_1, dct_2 = {"column_1": ["Assigned To ID", "int"]}, {"Status": ["Canceled"]}
