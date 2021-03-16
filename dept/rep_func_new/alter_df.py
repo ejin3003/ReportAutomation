@@ -15,7 +15,7 @@ class AlterDataframe:
                 column_1: ["col_name", "str or int"],
                 column_2: ["col_name", "str or int"],
              ...}"""
-        for i, k in enumerate(dct):
+        for _, k in enumerate(dct):
             val = dct[k]
             if val == "str":
                 self.df[k].fillna("Unknown", inplace=True)
