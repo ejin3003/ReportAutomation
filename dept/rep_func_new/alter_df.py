@@ -36,19 +36,25 @@ class AlterDataframe:
         # print(self.df)
         return self.df
 
-    # def build_unique_df(self):
-    #     """Builds an array of unique keys and values
-    #     dct:{}"""
-    #     for col in self.dct:
-    #         gb_obj = self.df.groupby(self.dct[col])
+    def build_unique_df(self, dct):
+        """Builds a dataframe of unique values
+        dct:{"columns": ["col_name_1", "col_name_2"]}"""
+        global df
+        for _, k in enumerate(dct):
+            col_1, col_2 = dct[k][0], dct[k][1]
+            gb_obj = self.df.groupby(col_1)
+            p_series = gb_obj[col_2].unique()
+            df = pd.DataFrame(p_series).reset_index()
+            print(df)
+        return df
 
     # def rename_columns(self):
     #     pass
 
 
-# cols = ["Name", "Position", "Status"]
-# data = [["Erza", "Leader", "Active"], ["Atlas", "Knight", "In-Active"], ["Sepra", "Spy", "Active"]]
-# df = pd.DataFrame(data, columns=cols)
-# dct = {"Position": ["Spy"], "Status": ["In-Active"]}
-# obj_df = AlterDataframe(df, dct)
-# df = obj_df.filter_out_rows()
+cols = ["Name", "Position", "epic_id"]
+data = [["Erza", "Leader", 101], ["Atlas", "Knight", 102], ["Sepra", "Spy", 103], ["Erza", "Leader", 101]]
+test_df = pd.DataFrame(data, columns=cols)
+dct = {"columns": ["Name", "epic_id"]}
+obj_df = AlterDataframe(test_df)
+obj_df.build_unique_df(dct)
