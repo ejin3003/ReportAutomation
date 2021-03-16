@@ -3,7 +3,7 @@ import pandas as pd
 """
 Researching a report focusing on escort transports for "MGH Interventional Radiology"
 """
-df = pd.read_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\IR Data\IR Data 12.01.20 - 1.09.21.xlsx")
+df = pd.read_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Feb 2021.xlsx")
 pd.set_option("display.width", 400)
 pd.set_option("display.max_columns", None)
 
@@ -37,4 +37,4 @@ new_df["Pnd->Asgn"] = new_df["Pnd->Asgn"].str.extract(r'(\d*\.?\d*)', expand=Fal
 new_df["Pnd->Cmp"] = new_df["Pnd->Cmp"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
 new_df["Total Delay Time"] = new_df["Total Delay Time"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
 
-new_df.to_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\IR Data\Alter IR Data 12.01.20 - 1.09.21.xlsx")
+new_df.to_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\IR Data\Alter IR Data 2.01.21-2.28.21.xlsx")
