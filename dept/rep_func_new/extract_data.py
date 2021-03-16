@@ -1,4 +1,3 @@
-import pandas as pd
 import datetime
 import calendar
 
@@ -25,16 +24,3 @@ class ExtractData:
         new_df["Month"] = month_name
         print(new_df.tail(3))
         return new_df
-
-
-
-
-
-
-
-# file_path = r"C:\Users\ejin3\OneDrive\Desktop\Oct 2020 Prod Rep.xlsx"
-#
-# test_obj = ExtractData(file_path)
-# extracted_prod_df = test_obj.extract_prod()
-# print(type(extracted_prod_df))
-
