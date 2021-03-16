@@ -15,8 +15,8 @@ def main():
     # Preps EPIC's: Activity Report Dataframe
     raw_act_df = CreateDataframe(path_act_rep).excel_to_df()
     dct_1, dct_2 = {"column_1": ["Assigned To ID", "int"]}, {"Status": ["Canceled"]}
-    c_act_df = AlterDataframe(raw_act_df, dct_1).fill_null_set_type()
-    act_df = AlterDataframe(c_act_df, dct_2).filter_out_rows()
+    c_act_df = AlterDataframe(raw_act_df).fill_null_set_type(dct_1)
+    act_df = AlterDataframe(c_act_df).filter_out_rows(dct_2)
 
     # Creates a new df that extracts the unique values from "Assigned To" & "Assigned To Id in the productivity report
     gb_escorts = act_df.groupby("Assigned To ID")
@@ -52,9 +52,9 @@ def main():
 # path_act_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Dec 2020.xlsx"
 # path_prd_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Dec 2020.xlsx"
 
-path_act_rep = r"C:\Users\ejin3\OneDrive\Desktop\MGH\Epic\Act Rep Jan 2021.xlsx"
-path_prd_rep = r"C:\Users\ejin3\OneDrive\Desktop\MGH\Epic\Prod Rep Jan 2021.xlsx"
-dest_file = r"C:\Users\ejin3\OneDrive\Desktop\Prod Extract Jan 2021.xlsx"
+path_act_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Act Rep Jan 2021.xlsx"
+path_prd_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Prod Rep Jan 2021.xlsx"
+dest_file = r"C:\Users\ejin3\Documents\MGH\Epic\Prod. Reps\Prod Extract Jan 2021.xlsx"
 
 # File Destination:
 # dest_file = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"

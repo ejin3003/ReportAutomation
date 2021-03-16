@@ -1,12 +1,13 @@
 
-def factorial(num):
-    val = 1
-    for i in range(num, 0, -1):
-        val *= i
-    return val
+dct = {
+    "One": 1,
+    "Two": 2,
+    "Three": 3
+}
 
 
-print("Enter a number")
-num = int(input())
-print(factorial(num))
+for _, k in enumerate(dct):
+    val = dct[k]
+    print(type(k), type(val))
+
 

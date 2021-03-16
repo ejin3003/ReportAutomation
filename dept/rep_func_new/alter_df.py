@@ -6,37 +6,41 @@ class AlterDataframe:
     Functions designed to make alterations to a Pandas dataframe
     df(Dataframe), dct(dictionary)
     """
-    def __init__(self, df, dct):
+    def __init__(self, df):
         self.df = df
-        self.dct = dct
 
-    def fill_null_set_type(self):
+    def fill_null_set_type(self, dct):
         """Fills null values and sets column types
             dct:{
                 column_1: ["col_name", "str or int"],
                 column_2: ["col_name", "str or int"],
              ...}"""
-        for col in self.dct:
-            col_name = self.dct[col][0]
-            col_type = self.dct[col][1]
-            if col_type == "str":
-                self.df[col_name].fillna("Unknown", inplace=True)
-                self.df[col_name] = self.df[col_name].astype(str)
-            elif col_type == "int":
-                self.df[col_name].fillna(0, inplace=True)
-                self.df[col_name] = self.df[col_name].astype(int)
+        for i, k in enumerate(dct):
+            val = dct[k]
+            if val == "str":
+                self.df[k].fillna("Unknown", inplace=True)
+                self.df[k] = self.df[k].astype(str)
+            elif val == "int":
+                self.df[k].fillna(0, inplace=True)
+                self.df[k] = self.df[k].astype(int)
         return self.df
 
-    def filter_out_rows(self):
+    def filter_out_rows(self, dct):
         """Filter out a rows with a specific value within designated columns
         dct:{"col_1": "val_1", "col_2": "val_2", ...}"""
         # new_df = self.df.copy()
-        for col_name in self.dct:
-            values_lst = self.dct[col_name]
+        for col_name in dct:
+            values_lst = dct[col_name]
             mask = -self.df[col_name].isin(values_lst)
             self.df = self.df[mask]
         # print(self.df)
         return self.df
+
+    # def build_unique_df(self):
+    #     """Builds an array of unique keys and values
+    #     dct:{}"""
+    #     for col in self.dct:
+    #         gb_obj = self.df.groupby(self.dct[col])
 
     # def rename_columns(self):
     #     pass
