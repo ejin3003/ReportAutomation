@@ -52,9 +52,9 @@ class AlterDataframe:
     #     pass
 
 
-cols = ["Name", "Position", "epic_id"]
-data = [["Erza", "Leader", 101], ["Atlas", "Knight", 102], ["Sepra", "Spy", 103], ["Erza", "Leader", 101]]
-test_df = pd.DataFrame(data, columns=cols)
-dct = {"columns": ["Name", "epic_id"]}
-obj_df = AlterDataframe(test_df)
-obj_df.build_unique_df(dct)
+# cols = ["Name", "Position", "epic_id"]
+# data = [["Erza", "Leader", 101], ["Atlas", "Knight", 102], ["Sepra", "Spy", 103], ["Erza", "Leader", 101]]
+# test_df = pd.DataFrame(data, columns=cols)
+# dct = {"columns": ["Name", "epic_id"]}
+# obj_df = AlterDataframe(test_df)
+# obj_df.build_unique_df(dct)
