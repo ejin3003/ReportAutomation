@@ -45,16 +45,12 @@ class AlterDataframe:
             gb_obj = self.df.groupby(col_1)
             p_series = gb_obj[col_2].unique()
             df = pd.DataFrame(p_series).reset_index()
+            df[col_2] = df[col_2].map(lambda x: x[0])
             print(df)
         return df
 
-    # def rename_columns(self):
-    #     pass
+    def join_dataframes(self, lst):
+        """ Joins two dataframes"""
 
+        pass
 
-# cols = ["Name", "Position", "epic_id"]
-# data = [["Erza", "Leader", 101], ["Atlas", "Knight", 102], ["Sepra", "Spy", 103], ["Erza", "Leader", 101]]
-# test_df = pd.DataFrame(data, columns=cols)
-# dct = {"columns": ["Name", "epic_id"]}
-# obj_df = AlterDataframe(test_df)
-# obj_df.build_unique_df(dct)

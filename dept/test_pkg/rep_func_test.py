@@ -43,9 +43,14 @@ def test_filter_out_rows():
     assert df_lst == [["Erza", "Leader", "Active"]]
 
 
-# def test_build_unique_df():
-#     cols = ["Assigned To", "Epic ID"]
-#     data = [["Erza", 101], ["Sepra", 102], ["Erza", 101], ["Ejin", 103], ["Sepra", 102]]
-#     df = pd.DataFrame(data, columns=cols)
+def test_build_unique_df():
+    cols = ["Name", "Position", "epic_id"]
+    data = [["Erza", "Leader", 101], ["Atlas", "Knight", 102], ["Sepra", "Spy", 103], ["Erza", "Leader", 101]]
+    test_df = pd.DataFrame(data, columns=cols)
+    dct = {"columns": ["Name", "epic_id"]}
+    obj_df = AlterDataframe(test_df)
+    df = obj_df.build_unique_df(dct)
+    df_lst = df.values.tolist()    # Removes array from the last column
+    assert df_lst == [['Atlas', 102], ['Erza', 101], ['Sepra', 103]]
 
 
