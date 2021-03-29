@@ -1,13 +1,22 @@
 from dept.rep_func_new.extract_data import ExtractData
 from dept.rep_func_new.create_df import CreateDataframe
 from dept.rep_func_new.alter_df import AlterDataframe
+from dept.decorators.timers_func import timer
+from dept.decorators.timers_func import runtime
 import pandas as pd
 
 
+@timer
+# @runtime
 def main():
     """
     Produces an excel file from EPIC data for the dept. Tableau Dashboard.
     """
+    # File Paths
+    path_act_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Act Rep Jan 2021.xlsx"
+    path_prd_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Prod Rep Jan 2021.xlsx"
+    dest_file = r"C:\Users\ejin3\Documents\MGH\Epic\Prod. Reps\Prod Extract Jan 2021.xlsx"
+
     # Preps EPIC's: Productivity Report Dataframe
     df_prod_rep = CreateDataframe(path_prd_rep, header_num=1).excel_to_df()
     prod_df = ExtractData(df_prod_rep).extract_prod()
@@ -48,16 +57,5 @@ def main():
     prod_df_extracted.to_excel(dest_file)
 
 
-# MGH File Paths: EPIC's "Activity Report" & Productivity Report
-# path_act_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Dec 2020.xlsx"
-# path_prd_rep = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Prod Reps\Prod Rep Dec 2020.xlsx"
-
-path_act_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Act Rep Jan 2021.xlsx"
-path_prd_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Prod Rep Jan 2021.xlsx"
-dest_file = r"C:\Users\ejin3\Documents\MGH\Epic\Prod. Reps\Prod Extract Jan 2021.xlsx"
-
-# File Destination:
-# dest_file = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Dec 2020.xlsx"
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
