@@ -7,7 +7,6 @@ import pandas as pd
 
 
 @timer
-# @runtime
 def main():
     """
     Produces an excel file from EPIC data for the dept. Tableau Dashboard.
