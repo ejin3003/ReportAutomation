@@ -54,3 +54,12 @@ def test_build_unique_df():
     assert df_lst == [['Atlas', 102], ['Erza', 101], ['Sepra', 103]]
 
 
+def test_join_dataframes():
+    cols_1, cols_2 = ["Name", "ID"], ["ID", "Shift"]
+    data_1, data_2 = [["Erza", 1], ["Ejin", 3], ["Sepra", 2]], [[2, "Evening"], [3, "Day"], [1, "Night"]]
+    df_1, df_2 = pd.DataFrame(data_1, columns=cols_1), pd.DataFrame(data_2, columns=cols_2)
+    join_lst = ["ID", "ID"]
+    joined_df = AlterDataframe(df_1).join_dataframes(df_2, join_lst)
+    lst_df = joined_df.values.tolist()
+    assert lst_df == [["Erza", "Night"], ["Ejin", "Day"], ["Sepra", "Evening"]]
+
