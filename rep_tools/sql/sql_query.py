@@ -24,13 +24,13 @@ sql = "SELECT pr.fullname, pr.completed, pr.canceled, pr.escalations, pr.delay_t
       "ack_comp, working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, " \
       "mm.shift FROM prod_data pr " \
       "INNER JOIN mm_staff mm ON pr.epic_id = mm.epic_id " \
-      "WHERE pr.month = 'February';"
+      "WHERE pr.month = 'March';"
 
 df = sqlio.read_sql_query(sql, conn)
 conn.close()
 
 print(df.head(3))
 df.set_index('fullname', inplace=True)
-df.to_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod SQL Alter Feb 2021.xlsx")
+df.to_excel(r"C:\Users\jt883\Desktop\Prod SQL Alter Mar 2021.xlsx")
 # Don't forget to change the SQL query month !!!
 
