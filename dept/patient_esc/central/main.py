@@ -12,13 +12,13 @@ def main():
     Produces an excel file from EPIC data for the dept. Tableau Dashboard.
     """
     # Home: File Paths
-    # path_act_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Act Rep Jan 2021.xlsx"
-    # path_prd_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Prod Rep Jan 2021.xlsx"
-    # dest_file = r"C:\Users\ejin3\Documents\MGH\Epic\Prod. Reps\Prod Extract Jan 2021.xlsx"
+    path_act_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Act Rep Jan 2021.xlsx"
+    path_prd_rep = r"C:\Users\ejin3\Documents\MGH\Epic\Prod Rep Jan 2021.xlsx"
+    dest_file = r"C:\Users\ejin3\Documents\MGH\Epic\Prod. Reps\Prod Extract Jan 2021.xlsx"
     # Work: File Paths
-    path_act_rep = r"\\Cifs2\mghmmprj$\Jason Tyson\Python\EPIC\Escort Data\Act Reps\Act Rep Feb 2021.xlsx"
-    path_prd_rep = r"\\Cifs2\mghmmprj$\Jason Tyson\Python\EPIC\Escort Data\Prod Reps\Prod Rep Feb 2021.xlsx"
-    dest_file = r"C:\Users\jt883\Desktop\Prod Extract Feb 2021.xlsx"
+    # path_act_rep = r"\\Cifs2\mghmmprj$\Jason Tyson\Python\EPIC\Escort Data\Act Reps\Act Rep Feb 2021.xlsx"
+    # path_prd_rep = r"\\Cifs2\mghmmprj$\Jason Tyson\Python\EPIC\Escort Data\Prod Reps\Prod Rep Feb 2021.xlsx"
+    # dest_file = r"C:\Users\jt883\Desktop\Prod Extract Feb 2021.xlsx"
 
     # Preps EPIC's: Productivity Report Dataframe
     df_prod_rep = CreateDataframe(path_prd_rep, header_num=1).excel_to_df()
