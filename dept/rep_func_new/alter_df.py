@@ -53,5 +53,15 @@ class AlterDataframe:
         """ Joins two dataframes lst = ["col_name_1", "col_name_2]"""
         join_1, join_2 = lst[0], lst[1]
         joined_df = self.df.set_index(join_1).join(join_df.set_index(join_2))
+        # new = joined_df.set_index(join_1)
         return joined_df
 
+# Testing
+cols_1, cols_2 = ["Name", "ID"], ["ID", "Shift"]
+data_1, data_2 = [["Erza", 1], ["Ejin", 3], ["Sepra", 2]], [[2, "Evening"], [3, "Day"], [1, "Night"]]
+df_1, df_2 = pd.DataFrame(data_1, columns=cols_1), pd.DataFrame(data_2, columns=cols_2)
+join_lst = ["ID", "ID"]
+joined_df = AlterDataframe(df_1).join_dataframes(df_2, join_lst)
+joined_df = joined_df.set_index("Name")
+print(joined_df)
+lst_df = joined_df.values.tolist()
