@@ -7,7 +7,6 @@ from dept.rep_func_new.alter_df import AlterDataframe
 import pandas as pd
 
 
-#%%
 """
 Produces an excel file from EPIC data for the dept. Tableau Dashboard.
 """
@@ -25,19 +24,20 @@ df_prod_rep = CreateDataframe(path_prd_rep, header_num=1).excel_to_df()
 pd.set_option("display.max_columns", None)
 pd.set_option("display.width", 400)
 prod_df = ExtractData(df_prod_rep).extract_prod()
-print(prod_df.head(3))
 
-#%%
 # Preps EPIC's: Activity Report Dataframe
 raw_act_df = CreateDataframe(path_act_rep).excel_to_df()
 dct_1, dct_2 = {"column_1": ["Assigned To ID", "int"]}, {"Status": ["Canceled"]}
 c_act_df = AlterDataframe(raw_act_df).fill_null_set_type(dct_1)
 act_df = AlterDataframe(c_act_df).filter_out_rows(dct_2)
 
+#%%
 # Creates a new df that extracts the unique values from "Assigned To" & "Assigned To Id in the prod. report
-cols_dct = {"columns": ["Assigned To", "Assigned To ID"]}
-escort_df = AlterDataframe(act_df).build_unique_df(cols_dct)
-
+cols_lst = ["Assigned To", "Assigned To ID"]
+escort_df = AlterDataframe(act_df).build_unique_df(cols_lst)
+print(escort_df.head(3))
+print(type(escort_df))
+#%%
 escort_df.sort_values(by="Assigned To", inplace=True)
 prod_df.reset_index(inplace=True)
 prod_df_extracted = prod_df.set_index("Transporter").join(escort_df.set_index("Assigned To"))
