@@ -22,5 +22,4 @@ class ExtractData:
         now = datetime.datetime.now().month
         month_name = calendar.month_name[now - 1]
         new_df["Month"] = month_name
-        print(new_df.tail(3))
         return new_df
