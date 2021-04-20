@@ -46,6 +46,7 @@ class AlterDataframe:
 
     def join_dataframes(self, join_df, lst):
         """ Joins two dataframes lst = ["col_name_1", "col_name_2]"""
+        """ Refactor: [[df_1, "join_col"], [df_2, "join_col"]]"""
         join_1, join_2 = lst[0], lst[1]
         joined_df = self.df.set_index(join_1).join(join_df.set_index(join_2))
         return joined_df
