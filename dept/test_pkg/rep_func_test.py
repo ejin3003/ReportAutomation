@@ -47,7 +47,7 @@ def test_build_unique_df():
     cols = ["Name", "Position", "epic_id"]
     data = [["Erza", "Leader", 101], ["Atlas", "Knight", 102], ["Sepra", "Spy", 103], ["Erza", "Leader", 101]]
     test_df = pd.DataFrame(data, columns=cols)
-    dct = {"columns": ["Name", "epic_id"]}
+    dct = ["Name", "epic_id"]
     obj_df = AlterDataframe(test_df)
     df = obj_df.build_unique_df(dct)
     df_lst = df.values.tolist()    # Removes array from the last column

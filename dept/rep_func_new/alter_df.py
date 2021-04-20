@@ -48,7 +48,6 @@ class AlterDataframe:
         """ Joins two dataframes lst = ["col_name_1", "col_name_2]"""
         join_1, join_2 = lst[0], lst[1]
         joined_df = self.df.set_index(join_1).join(join_df.set_index(join_2))
-        # new = joined_df.set_index(join_1)
         return joined_df
 
 # Testing

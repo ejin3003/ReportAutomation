@@ -7,6 +7,8 @@ from dept.rep_func_new.alter_df import AlterDataframe
 import pandas as pd
 
 
+
+
 """
 Produces an excel file from EPIC data for the dept. Tableau Dashboard.
 """
@@ -31,17 +33,20 @@ dct_1, dct_2 = {"column_1": ["Assigned To ID", "int"]}, {"Status": ["Canceled"]}
 c_act_df = AlterDataframe(raw_act_df).fill_null_set_type(dct_1)
 act_df = AlterDataframe(c_act_df).filter_out_rows(dct_2)
 
-#%%
 # Creates a new df that extracts the unique values from "Assigned To" & "Assigned To Id in the prod. report
 cols_lst = ["Assigned To", "Assigned To ID"]
 escort_df = AlterDataframe(act_df).build_unique_df(cols_lst)
-print(escort_df.head(3))
-print(type(escort_df))
-#%%
-escort_df.sort_values(by="Assigned To", inplace=True)
-prod_df.reset_index(inplace=True)
-prod_df_extracted = prod_df.set_index("Transporter").join(escort_df.set_index("Assigned To"))
 
+#%%
+prod_df_extracted = AlterDataframe(escort_df).join_dataframes(prod_df, ["Assigned To", "Transporter"])
+print(prod_df_extracted.head(3))
+# Previous Code
+# escort_df.sort_values(by="Assigned To", inplace=True)
+# prod_df.reset_index(inplace=True)
+# prod_df_extracted = prod_df.set_index("Transporter").join(escort_df.set_index("Assigned To"))
+# print(prod_df_extracted.head(3))
+
+#%%
 # Fill null values
 col_lst = ["Ack -> In P", "In P -> Comp", "Ack -> Comp", "Assigned To ID"]
 for num in range(len(col_lst)):
