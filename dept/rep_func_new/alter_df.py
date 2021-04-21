@@ -44,11 +44,21 @@ class AlterDataframe:
         new_df[col_2] = new_df[col_2].map(lambda x: x[0])  # Takes the first value from the list
         return new_df
 
-    def join_dataframes(self, join_df, lst):
-        """ Joins two dataframes lst = ["col_name_1", "col_name_2]"""
-        """ Refactor: [[df_1, "join_col"], [df_2, "join_col"]]"""
-        join_1, join_2 = lst[0], lst[1]
-        joined_df = self.df.set_index(join_1).join(join_df.set_index(join_2))
+
+class JoinTwoDataframes:
+    """
+    Joins two dataframes
+    :param [df_1, join_col_1], [df_2, join_col_2]
+    """
+    def __init__(self, lst_1, lst_2):
+        self.lst_1 = lst_1
+        self.lst_2 = lst_2
+
+    def join_df(self):
+        """ Joins two dataframes (Must reset dataframe index"""
+        df_1, df_2 = self.lst_1[0], self.lst_2[0]
+        join_1, join_2 = self.lst_1[1], self.lst_2[1]
+        joined_df = df_1.set_index(join_1).join(df_2.set_index(join_2))
         return joined_df
 
 # Testing

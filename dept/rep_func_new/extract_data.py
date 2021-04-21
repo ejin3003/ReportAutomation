@@ -22,4 +22,5 @@ class ExtractData:
         now = datetime.datetime.now().month
         month_name = calendar.month_name[now - 1]
         new_df["Month"] = month_name
+        new_df.reset_index(inplace=True)
         return new_df

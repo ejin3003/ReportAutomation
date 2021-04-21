@@ -2,12 +2,10 @@
 from dept.rep_func_new.extract_data import ExtractData
 from dept.rep_func_new.create_df import CreateDataframe
 from dept.rep_func_new.alter_df import AlterDataframe
+from dept.rep_func_new.alter_df import JoinTwoDataframes
 # from dept.decorators.timers_func import timer
 # from dept.decorators.timers_func import runtime
 import pandas as pd
-
-
-
 
 """
 Produces an excel file from EPIC data for the dept. Tableau Dashboard.
@@ -38,8 +36,8 @@ cols_lst = ["Assigned To", "Assigned To ID"]
 escort_df = AlterDataframe(act_df).build_unique_df(cols_lst)
 
 #%%
-prod_df_extracted = AlterDataframe(escort_df).join_dataframes(prod_df, ["Assigned To", "Transporter"])
-print(prod_df_extracted.head(3))
+prod_df_extracted = JoinTwoDataframes([prod_df, "Transporter"], [escort_df, "Assigned To"]).join_df()
+
 # Previous Code
 # escort_df.sort_values(by="Assigned To", inplace=True)
 # prod_df.reset_index(inplace=True)
