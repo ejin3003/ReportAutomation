@@ -22,7 +22,8 @@ class AlterDataframe:
                 self.df[k] = self.df[k].astype(str)
             elif val == "int":
                 self.df[k].fillna(0, inplace=True)
-                self.df[k] = self.df[k].astype(int)
+                # self.df[k] = self.df[k].astype(int)
+                self.df[k] = pd.to_numeric(self.df[k], errors="coerce").astype(int)
         return self.df
 
     def filter_out_rows(self, dct):
