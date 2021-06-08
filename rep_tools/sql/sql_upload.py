@@ -61,14 +61,15 @@ def main(path):
         total_patient = df['Total Patient'][i]
         total_non_patient = df['Total Non-Patient'][i]
         month = df['Month'][i]
+        year = 2021
         epic_id = df['Assigned To ID'][i]
         columns = "fullname, completed, canceled, outliers, escalations, delay_time, ack_inp, inp_comp, ack_comp," \
-                  " working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, epic_id"
+                  " working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, epic_id, year"
         values = (fullname, completed, canceled, outliers, escalations, delay_time, ack_inp, inp_cmp, ack_comp,
-                  working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, epic_id)
+                  working_time, idle_time, break_time, work_days, total_patient, total_non_patient, month, epic_id, year)
 
         # query = "INSERT INTO table_name(col_1, col_1) VALUES(%, '%');" % (val_1, val_2)
-        query = f"INSERT INTO prod_data({columns}) VALUES('%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '%s', %s);" % values
+        query = f"INSERT INTO prod_data({columns}) VALUES('%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '%s', %s, %s);" % values
 
         conn = connect(param_dic)
         single_insert(conn, query)
@@ -76,7 +77,7 @@ def main(path):
 
 
 # rep_path = r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Reps Altered\Prod Extract Jan 2021.xlsx"
-# rep_path = r"C:\Users\jt883\Desktop\Prod Extract Apr 2021.xlsx"
+# rep_path = r"C:\Users\jt883\Desktop\Prod Extract May 2021.xlsx"
 # main(rep_path)
 
 
