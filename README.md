@@ -7,9 +7,11 @@ The purpose of these custom functions is to automate redudant/repetitive excel r
 
 <details open>
   <summary>Open Markdown</summary>
-  <li>Self-reference</li>
-  </details>
-
+<ul type="square">
+    <li>Self-reference</li>
+    <li>New-reference</li>
+</ul>
+</details>
 
 <details>
 <summary>Closed Markdown</summary>
@@ -23,3 +25,4 @@ $ pip install excalibur-py[dev]
 
 # Test
 - tab?
+

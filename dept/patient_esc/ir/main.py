@@ -3,21 +3,22 @@ import pandas as pd
 """
 Researching a report focusing on escort transports for "MGH Interventional Radiology"
 """
-df = pd.read_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Feb 2021.xlsx")
+# df = pd.read_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\Escort Data\Act Reps\Act Rep Feb 2021.xlsx")
+df = pd.read_excel(r"C:\Users\ejin3\OneDrive\Desktop\Act Rep Jan 2021.xlsx")
 pd.set_option("display.width", 400)
 pd.set_option("display.max_columns", None)
 
 # Filter out the records with a "Sector" of "MGH Interventional Radiology"
-mask = df["Sector"] == 'MGH Interventional Radiology'
-ir_sector_df = df[mask]
+# mask = df["Sector"] == 'MGH Interventional Radiology'
+# ir_sector_df = df[mask]
 
 # Filter out desired columns
 columns = ['Transport Date', 'Transport Time', 'Assigned To', 'Pick-up Location', 'Location', 'Destination', 'Region',
            'Source', 'Ack->Cmp', 'Ack->InP', 'Asgn->Ack', 'Asgn->Cmp', 'InP->Cmp', 'Pnd->Asgn', 'Pnd->Cmp',
-           'Total Delay Time', 'Job ID', 'Patient Name', 'Assigned Instant', 'Mode', 'Num of Transporters',
+           'Total Delay Time', 'Job ID', 'Assigned Instant', 'Mode', 'Num of Transporters',
            'Day of Month', 'Transport Type', 'Month', 'Week', 'Assigned To ID', 'Status', 'Pick-Up Department',
            'Destination Department', 'Sector']
-ir_sector_df = ir_sector_df[columns]
+ir_sector_df = df[columns]
 
 """
 Rushed Code:file:"clean_epic_act_rep.py" Turn into Functions
@@ -37,4 +38,4 @@ new_df["Pnd->Asgn"] = new_df["Pnd->Asgn"].str.extract(r'(\d*\.?\d*)', expand=Fal
 new_df["Pnd->Cmp"] = new_df["Pnd->Cmp"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
 new_df["Total Delay Time"] = new_df["Total Delay Time"].str.extract(r'(\d*\.?\d*)', expand=False).astype(int)
 
-new_df.to_excel(r"C:\Users\jt883\Desktop\MGH\EPIC\IR Data\Alter IR Data 2.01.21-2.28.21.xlsx")
+new_df.to_excel(r"C:\Users\ejin3\OneDrive\Desktop\Act Rep Jan 2021 Altered.xlsx")

@@ -11,6 +11,8 @@ positionals = ','.join(columns_dct.values())
 positionals = positionals.replace("str", "'%s'").replace("int", "%s")
 row1_values = df.iloc[0]
 sql_query = f"INSERT INTO prod_data({col_name_str}) VALUES({positionals})"
-print(tuple(row1_values))
 
-tup_comp = (x for x in df)
+gen_obj = ((tuple(df.iloc[row_num]) for row_num in range(len(df.index))))
+tup_values = tuple(gen_obj)
+# print(tup_values)
+# List Comprehension Alternative
