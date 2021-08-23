@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from dept.rep_func_new.extract_data import ExtractData
 from dept.rep_func_new.alter_df import AlterDataframe
+from dept.rep_func_new.sql import SequelQuery
 
 
 def test_extract_prod():
@@ -63,3 +64,14 @@ def test_join_dataframes():
     lst_df = joined_df.values.tolist()
     assert lst_df == [["Erza", "Night"], ["Ejin", "Day"], ["Sepra", "Evening"]]
 
+
+def test_build_upload_query():
+    column_names = ['first_name', 'last_name', 'ID', 'shift', 'Total']
+    data = [['Erza', 'Scarlet', 1, 'Day', 77], ['Ejin', 'Moonlight', 2, 'Day', 24], ['Vawn', 'Fair', 3, 'Day', 33]]
+    df = pd.DataFrame(data, columns=column_names)
+    columns_dct = {'first_name': 'str', 'last_name': 'str', 'ID': 'int', 'shift': 'str', 'Total': 'int'}
+    col_name_str = ' ,'.join(columns_dct.keys())
+    positionals = ','.join(columns_dct.values())
+    positionals = positionals.replace("str", "'%s'").replace("int", "%s")
+    sql_query = f"INSERT INTO prod_data({col_name_str}) VALUES({positionals})"
+    assert True

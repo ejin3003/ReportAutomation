@@ -19,6 +19,20 @@ class PostgreSQL:
             sys.exit(1)
         return conn
 
+    def single_insert(self, columns_dict):
+        """Inserts data into sequel database one row at a time"""
+        pass
+
+
+class SequelQuery:
+
+    def __init__(self):
+        self.dct = {}
+
+    def build_upload_query(self, **kwargs):
+        """{"column_name": "str or int"}"""
+        pass
+
 
 param_dict = {
     "host": "localhost",
@@ -27,7 +41,8 @@ param_dict = {
     "password": "mgh3003"
 }
 
-sql_obj = PostgreSQL()
+
+# Test 1: Connection
 # If you want to pass the dictionary contents as keyword arguments you need to unpack it (** in front of the dict).
-conn = sql_obj.connect(**param_dict)
-conn.close()
+# conn = PostgreSQL().connect(**param_dict)
+# conn.close()
