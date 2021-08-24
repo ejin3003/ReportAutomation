@@ -2,6 +2,8 @@ from dept.rep_func_new.extract_data import ExtractData
 from dept.rep_func_new.create_df import CreateDataframe
 from dept.rep_func_new.alter_df import AlterDataframe
 from dept.rep_func_new.alter_df import JoinTwoDataframes
+from dept.rep_func_new.sql_upload import connect, single_insert
+from dept.rep_func_new.sql import SequelQuery
 # from dept.decorators.timers_func import timer
 # from dept.decorators.timers_func import runtime
 import pandas as pd
@@ -49,4 +51,30 @@ num_cols_dct = {
 final_prod_df = AlterDataframe(prod_df_extracted).fill_null_set_type(num_cols_dct)
 final_prod_df.to_excel(dest_file)
 
-# Find "Assigned To ID" from within local PostgreSql Database
+# Upload data to Local PostgreSql Database
+column_dict = {
+    "fullname": "str",
+    "Completed": "int",
+    "Canceled": "int",
+    "Outliers": "int",
+    "Escalations": "int",
+    "Delay Time": "int",
+    "Ack -> In P": "int",
+    "In P -> Comp": "int",
+    "Ack -> Comp": "int",
+    "Total Patient": "int",
+    "Total Non-Patient": "int",
+    "Assigned To ID": "int"
+}
+query_obj = SequelQuery(final_prod_df)
+query_list = query_obj.build_query_list(column_dict)
+param_dict = {
+    "host": "localhost",
+    "database": "epic_data",
+    "user": "postgres",
+    "password": "mgh3003"
+}
+for query in query_list:
+    conn = connect(param_dict)
+    single_insert(conn, query)
+    conn.close()

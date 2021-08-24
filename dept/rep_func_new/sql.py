@@ -19,19 +19,31 @@ class PostgreSQL:
             sys.exit(1)
         return conn
 
-    def single_insert(self, columns_dict):
+    def single_insert(self, sql_query):
         """Inserts data into sequel database one row at a time"""
         pass
 
 
 class SequelQuery:
 
-    def __init__(self):
-        self.dct = {}
+    def __init__(self, df):
+        self.df = df
 
-    def build_upload_query(self, **kwargs):
+    def build_query_list(self, columns_dct):
         """{"column_name": "str or int"}"""
-        pass
+        col_name_str = ' ,'.join(columns_dct.keys())
+        positionals = ','.join(columns_dct.values())
+        positionals = positionals.replace("str", "'%s'").replace("int", "%s")
+        base_query = f"INSERT INTO prod_data({col_name_str}) VALUES({positionals})"
+        gen_obj = ((tuple(df.iloc[row_num]) for row_num in range(len(df.index))))
+        values_list = list(gen_obj)
+        sql_list = []
+        for _, values in enumerate(values_list):
+            sql_list.append(base_query % values)
+        return sql_list
+
+
+
 
 
 param_dict = {
