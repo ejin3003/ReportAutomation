@@ -35,15 +35,12 @@ class SequelQuery:
         positionals = ','.join(columns_dct.values())
         positionals = positionals.replace("str", "'%s'").replace("int", "%s")
         base_query = f"INSERT INTO prod_data({col_name_str}) VALUES({positionals})"
-        gen_obj = ((tuple(df.iloc[row_num]) for row_num in range(len(df.index))))
+        gen_obj = ((tuple(self.df.iloc[row_num]) for row_num in range(len(self.df.index))))
         values_list = list(gen_obj)
         sql_list = []
         for _, values in enumerate(values_list):
             sql_list.append(base_query % values)
         return sql_list
-
-
-
 
 
 param_dict = {

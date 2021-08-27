@@ -78,3 +78,5 @@ for query in query_list:
     conn = connect(param_dict)
     single_insert(conn, query)
     conn.close()
+
+
